@@ -29,7 +29,7 @@ const MyStocks = () => {
         };
         getDocData();
         console.log("MyStocks useEffect");
-    }, [myStockData])
+    }, [])
 
     useEffect(() => {
         const userDocRef = doc(db, "users", currentUser.email);

@@ -68,8 +68,8 @@ const MyStockCard = ( {stockData, availableFunds, setMessage} ) => {
         setChange((currentClose - currentPrevClose).toFixed(2));
         setPercentChange((((currentClose - currentPrevClose)/currentPrevClose)*100).toFixed(2));
         setQuantity(qty);
-        // console.log("MyStockCard UseEffect");
-    }, [currentClose, currentPrevClose, qty]);
+        console.log("MyStockCard UseEffect");
+    }, []);
 
     return(
         <div className = "w-100 br3 pa3 ma3 mt4 pr0 center msc-container flex-column bg-black">
