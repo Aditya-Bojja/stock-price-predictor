@@ -72,7 +72,7 @@ function StockDetails(){
             }
         };
         getDocData();
-    }, [currentUser.email])
+    }, [])
 
     const canBuyStock = () => {
         setError("");

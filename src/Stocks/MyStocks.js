@@ -29,7 +29,7 @@ const MyStocks = () => {
         };
         getDocData();
         console.log("MyStocks useEffect");
-    }, [currentUser.email, myStockData])
+    }, [myStockData])
 
     useEffect(() => {
         const userDocRef = doc(db, "users", currentUser.email);
@@ -41,7 +41,7 @@ const MyStocks = () => {
         };
         getDocData();
         console.log("Profile useEffect");
-    }, [currentUser.email])
+    }, [])
 
     function fetchStockDetails(stockSymbol){
         let API_URL = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=${API_KEY}`;

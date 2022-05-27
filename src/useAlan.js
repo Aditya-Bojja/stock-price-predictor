@@ -70,7 +70,7 @@ export default function useAlan() {
         }
       };
       getDocData();
-    }, [alanInstance, currentUser.email]);
+    }, [alanInstance]);
 
     const searchForStocks = useCallback(({detail: {stockName}}) => {
       if(stockName){

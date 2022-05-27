@@ -35,7 +35,7 @@ const Profile = () => {
             }
         };
         getDocData();
-    }, [currentUser.email])
+    }, [])
     
 
     return(
