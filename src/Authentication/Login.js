@@ -22,7 +22,7 @@ function Login() {
             setLoading(true);
             setError('');
             await login(emailRef.current.value, passwordRef.current.value);
-            navigate('/profile');
+            navigate('/home');
         } catch {
             setError('Failed to Log In');
         }

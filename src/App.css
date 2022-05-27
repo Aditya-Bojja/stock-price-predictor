@@ -31,6 +31,14 @@
     color: black;
 }
 
+.color-lb{
+    color: rgb(53, 162, 235);;
+}
+
+.color-white{
+    color: white;
+}
+
 .add-funds{
     color: #2A2E37;
     background-color: #00FEDE;
@@ -61,7 +69,24 @@
     box-shadow: 0px 0px 7px 1px rgb(53, 162, 235); 
 }
 
-.home-img{
+/* .home-img{
     width: 50%;
     height: 50%;
+} */
+
+.intro-card{
+    color: white;
+    background-color: black;
+    border: 1px solid rgb(53, 162, 235);
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: normal;
+}
+
+.mw8{
+    max-width: 78rem;
 }
