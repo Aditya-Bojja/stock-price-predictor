@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import 'tachyons';
 
 import App from './App';
@@ -18,7 +18,7 @@ import './index.css';
 // );
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <AuthProvider>
       <StockProvider>
         <CartProvider>
@@ -26,7 +26,7 @@ ReactDOM.render(
         </CartProvider>
       </StockProvider>
     </AuthProvider>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root')
 );
 
