@@ -1,9 +1,8 @@
 import React from "react";
 import {Line} from 'react-chartjs-2';
 import {Chart as ChartJS} from 'chart.js/auto';
-import './StockChart.css';
 
-const StockChart = ({stockName, timeStamps,openPrice,highPrice,lowPrice,closePrice}) => {
+const StockChart = ({ timeStamps, openPrice, highPrice, lowPrice, closePrice}) => {
   let chartData = {
     labels: timeStamps,
     datasets: [
@@ -38,8 +37,7 @@ const StockChart = ({stockName, timeStamps,openPrice,highPrice,lowPrice,closePri
     ]
 };
   return(
-    <div className="chart">
-      <h1 className="tc">{stockName}</h1>
+    <div className="chart mb6">
       <Line 
         width={300}
         height={300}
@@ -71,7 +69,8 @@ const StockChart = ({stockName, timeStamps,openPrice,highPrice,lowPrice,closePri
                 color: "#15171c",
                 tickColor: "#FFF",
                 borderColor: "#00FEDE"
-              }
+              },
+              reverse: true
             },
             y: {
               title: {

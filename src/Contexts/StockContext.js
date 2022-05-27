@@ -10,12 +10,12 @@ export function useStock(){
 
 export function StockProvider({ children }) {
 
+    const API_KEY = process.env.REACT_APP_ALPHAVANTAGE_API;
     const [searchField, setSearchField] = useState('');
     const [searchMatches, setSearchMatches] = useState(DefaultSensex);
     const [activeStockName, setActiveStockName] = useState('');
     const [activeStockSymbol, setActiveStockSymbol] = useState('');
     const [activeStockData, setActiveStockData] = useState({});
-    const API_KEY = 'AOFBIHZ9OPOBB65S';
     const [loading, setLoading] = useState(false);
 
     function searchChange(searchInput){
@@ -25,11 +25,13 @@ export function StockProvider({ children }) {
     function findStocks(){
         setLoading(true);
         let API_URL = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${searchField}&apikey=${API_KEY}`;
-        fetch(API_URL)
-        .then(response => response.json())
-        .then(data => {
-            setSearchMatches(data.bestMatches);
-        })
+        if(searchField){
+            fetch(API_URL)
+            .then(response => response.json())
+            .then(data => {
+                setSearchMatches(data.bestMatches);
+            })
+        }
         setLoading(false);
     }
 
@@ -50,10 +52,14 @@ export function StockProvider({ children }) {
         searchChange,
         findStocks,
         searchMatches,
+        setSearchMatches,
         activeStock,
         activeStockName,
+        setActiveStockName,
         activeStockSymbol,
+        setActiveStockSymbol,
         activeStockData,
+        setActiveStockData,
     }
 
     return (

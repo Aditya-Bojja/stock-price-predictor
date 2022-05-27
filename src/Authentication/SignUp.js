@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../Contexts/AuthContext';
+// import { useCart } from '../Contexts/CartContext';
 import './Authentication.css';
 
 function SignUp() {
@@ -10,6 +11,7 @@ function SignUp() {
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
     const {signup} = useAuth();
+    // const { addNewUser } = useCart();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -27,7 +29,8 @@ function SignUp() {
             setLoading(true);
             setError('');
             await signup(emailRef.current.value, passwordRef.current.value);
-            navigate('/profile');
+            // await addNewUser(emailRef.current.value);
+            navigate('/home');
         } catch {
             setError('Failed to create an Account');
         }

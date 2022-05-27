@@ -8,3 +8,7 @@ body{
     background-color: #2A2E37;
     color: white;
 }
+
+html{
+    scroll-behavior: smooth;
+}

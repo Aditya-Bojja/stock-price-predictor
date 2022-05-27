@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import {useStock} from '../Contexts/StockContext';
 import './CompanyCard.css';
 
-const CompanyCard = ({name, symbol, region}) => {
+const CompanyCard = ({name, symbol, region, i}) => {
     let navigate = useNavigate();
     const {activeStock} = useStock();
 
@@ -15,7 +15,7 @@ const CompanyCard = ({name, symbol, region}) => {
     return(
         <div className = "w-100 br3 pa3 ma3 center cust-container div1">
             <div className='div2'>
-                <h1 >{name} ({symbol})</h1>
+                <h1> {name} ({symbol})</h1>
                 <h2 className='region'>{region}</h2>
             </div>
             <div className='div3 tc'>
@@ -27,6 +27,7 @@ const CompanyCard = ({name, symbol, region}) => {
                     }}>
                     View Details
                 </button>
+                <div className='f3 mt3'>{i}</div>
             </div>
         </div>
     );

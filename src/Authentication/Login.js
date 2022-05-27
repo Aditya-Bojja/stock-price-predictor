@@ -62,34 +62,3 @@ function Login() {
 }
 
 export default Login;
-
-
-/*
-
-<div bsPrefix="cust-container" className='d-flex align-items-center justify-content-center' style={{minHeight: "100vh"}}>
-                <div className='w-100 login-div1' style={{maxWidth: "400px"}}>
-                    <div bsPrefix='cust-card'>
-                        <div>
-                            <h2 className='text-center mb-4'>Log In to your Account</h2>
-                            {error && <Alert variant='danger'>{error}</Alert>}
-                            <Form onSubmit={handleSubmit}>
-                                <Form.Group id='email' className='mb-2'>
-                                    <Form.Label>Email</Form.Label>
-                                    <Form.Control bsPrefix='cust-input-box' type='email' ref={emailRef} required />
-                                </Form.Group>
-                                <Form.Group id='password' className='mb-2'>
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control bsPrefix='cust-input-box' type='password' ref={passwordRef} required />
-                                </Form.Group>
-                                <Button disabled={loading} bsPrefix='cust-submit' className='w-100 mt-2' type='submit'>Log In</Button>
-                            </Form>
-                            <div className='w-100 text-center mt-3'>
-                                <Link to={"/forgot-password"}>Forgot Password?</Link>
-                            </div>
-                        </Card.Body>
-                    </Card>
-                    <div className='w-100 text-center mt-2'>Don't have an Account? <Link to={"/signup"}>Sign Up</Link> </div>
-                </div>
-            </div>
-
-*/

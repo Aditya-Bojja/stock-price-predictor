@@ -66,3 +66,57 @@ button{
     color: #2A2E37;
     background-color: #00FEDE;
 }
+
+/* StockChart Styles */
+
+.chart{
+    height: 500px;
+}
+
+/* StockDetails */
+.sd-button{
+    color: white;
+    background-color: #2A2E37;
+    border: 2px solid rgb(53, 162, 235);
+    font-size: large;
+    font-weight: 600;
+}
+
+.sd-button:hover{
+    color: #2A2E37;
+    background-color: rgb(53, 162, 235);
+}
+
+.sd-border{
+    border-top: 1px solid rgba(133, 133, 133, 0.461);
+}
+
+/* MyStockCard Styles */ 
+
+
+.msc-container{
+    display: flex;
+    color: white;
+    max-width: 1000px;
+    /* box-shadow: 0px 0px 8px 2px rgba(0, 140, 254, 0.2);  */
+    box-shadow: 0px 0px 7px 1px rgb(53, 162, 235); 
+}
+
+.color-lb{
+    color: rgb(53, 162, 235);
+}
+
+.color-lg{
+    color: rgb(177, 255, 61);
+}
+
+strong{
+    color: white;
+}
+
+.table-padding{
+    padding: 5px 20px;
+}
+
+
+/* MyStocks Styles */

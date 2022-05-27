@@ -37,7 +37,8 @@ function SearchStocks(){
                 {
                     searchMatches.length ?
                         searchMatches.map((company, index) => {
-                            return <CompanyCard key={index} name={company['2. name']} symbol={company['1. symbol']} region={company['4. region']}/>
+                            company["i"] = index + 1;
+                            return <CompanyCard key={index} i={index + 1} name={company['2. name']} symbol={company['1. symbol']} region={company['4. region']}/>
                         })
                     :
                         <h3 className='tc'>Could not find any stocks matching your search</h3>        

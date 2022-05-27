@@ -46,6 +46,7 @@ const Navigation = () => {
                         <NavBarLinkContainer>
                             <NavBarLink to={"/home"}> Home </NavBarLink>
                             <NavBarLink to={"/search-stocks"}> Search Stocks </NavBarLink>
+                            <NavBarLink to={"/mystocks"}> My Stocks </NavBarLink>
                             <NavBarLink to={"/profile"}> Profile </NavBarLink>
                             <LogOut onClick={handleLogout}>Log Out</LogOut>
                             <MenuButton onClick={() => {
@@ -62,6 +63,7 @@ const Navigation = () => {
                         <ExtendedContainer>
                             <NavBarLinkExtended to={"/home"} > Home </NavBarLinkExtended>
                             <NavBarLinkExtended to={"/search-stocks"} > Search Stocks </NavBarLinkExtended>
+                            <NavBarLinkExtended to={"/mystocks"} > My Stocks </NavBarLinkExtended>
                             <NavBarLinkExtended to={"/profile"} > Profile </NavBarLinkExtended>
                             <LogOutExtended onClick={handleLogout}> Log Out </LogOutExtended>
                         </ExtendedContainer>
