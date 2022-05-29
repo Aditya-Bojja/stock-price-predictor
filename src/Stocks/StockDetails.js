@@ -146,7 +146,7 @@ function StockDetails(){
     function handlePrediction(){
         setRenderFutureGraph(!renderFutureGraph);
         console.log("Making API call.......");
-        let baseURL = `https://bit.ly/38TR8cE/`;
+        let baseURL = `https://cutt.ly/fJuxrEW`;
         // axios.post(baseURL, {
         //     Company: "TATA",
         // })
