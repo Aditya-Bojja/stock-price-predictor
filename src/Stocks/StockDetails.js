@@ -146,22 +146,29 @@ function StockDetails(){
     function handlePrediction(){
         setRenderFutureGraph(!renderFutureGraph);
         console.log("Making API call.......");
-        let baseURL = `https://cutt.ly/fJuxrEW`;
-        // axios.post(baseURL, {
-        //     Company: "TATA",
-        // })
+        let baseURL = `https://cutt.ly/fJuxrEW/`;
+        // axios.post(baseURL)
         // .then((response) => {
         //     console.log(response.data);
         // });
 
-        fetch(baseURL, {
-            mode: 'no-cors',
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json', 
-             }
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+        xhttp.open("GET", baseURL, true);
+        xhttp.send();
+
+        // fetch(baseURL, {
+        //     mode: 'no-cors',
+        //         headers : { 
+        //           'Content-Type': 'application/json',
+        //           'Accept': 'application/json', 
+        //          }
       
-          }).then(response => console.log(response));
+        //   }).then(response => response.json()).then(data => console.log(data));
 
 
 
