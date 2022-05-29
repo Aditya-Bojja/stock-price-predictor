@@ -161,7 +161,7 @@ function StockDetails(){
               'Accept': 'application/json', 
              }
       
-          }).then(response => response.json()).then(data => console.log(data));
+          }).then(response => console.log(response));
 
 
 
