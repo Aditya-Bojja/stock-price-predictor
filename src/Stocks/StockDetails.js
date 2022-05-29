@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import Navigation from '../Navigation/Navigation';
 import StockChart from './StockChart';
+import FutureStockChart from './FutureStockChart';
 import { useAuth } from '../Contexts/AuthContext';
 import { db } from "../firebase.js";
 import { getDoc, doc } from "firebase/firestore";
@@ -18,11 +21,14 @@ function StockDetails(){
     const [lowPrice, setLowPrice] = useState([]);
     const [closePrice, setClosePrice] = useState([]);
     const [volume, setVolume] = useState([]);
+    const [futureTimeStamps, setFutureTimeStamps] = useState([]);
+    const [futureClosePrice, setFutureClosePrice] = useState([]);
     const [change, setChange] = useState(0);
     const [percentChange, setPercentChange] = useState(0);
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
     const [renderBuyStock, setRenderBuyStock] = useState(false);
+    const [renderFutureGraph, setRenderFutureGraph] = useState(false);
     const [qty, setQty] = useState(0);
     const [availableFunds, setAvailableFunds] = useState(0);
 
@@ -137,6 +143,38 @@ function StockDetails(){
         setQty(Number(e.target.value));
     }
 
+    function handlePrediction(){
+        setRenderFutureGraph(!renderFutureGraph);
+        console.log("Making API call.......");
+        let baseURL = `http://mukesh.southindia.cloudapp.azure.com/`;
+        // axios.post(baseURL, {
+        //     Company: "TATA",
+        // })
+        // .then((response) => {
+        //     console.log(response.data);
+        // });
+
+        fetch(baseURL, {
+            headers : { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+             }
+      
+          }).then(response => response.json()).then(data => console.log(data));
+
+
+
+        console.log("Fetched Data");
+        let futureDates = [];
+        var today = new Date();
+        for(let i = 1; i < 6; i++){
+            today.setDate(today.getDate()+1)
+            futureDates.unshift(today.toLocaleDateString());
+        }
+        setFutureTimeStamps(futureDates.concat(timeStamps.slice(0, 25)));
+        setFutureClosePrice([417.05, 420.20, 422.34, 419.35, 423.46].concat([].fill(0,0,25)));
+    }
+
     return(
         <div>
             <Navigation />
@@ -201,7 +239,8 @@ function StockDetails(){
                                 <div></div>
                         }
 
-                        <div className='pb6'>
+                        {/* Current Performance Graph*/}
+                        <div className=''>
                             <StockChart 
                                 timeStamps={timeStamps} 
                                 openPrice={openPrice}
@@ -211,7 +250,23 @@ function StockDetails(){
                                 volume={volume}
                             />
                         </div>
-
+                        
+                        {/* Future Performance Graph */}
+                        <div className='w-100 tc'>
+                            <button className="br-pill ph3 pv2 sd-button ml5 ma4" onClick={handlePrediction} > Predict Price </button>
+                        </div>
+                        {
+                            renderFutureGraph?
+                                <div className='pb6'>
+                                    <FutureStockChart 
+                                        timeStamps={futureTimeStamps} 
+                                        currentClosePrice={Array(5).fill().concat(closePrice.slice(0,25))}
+                                        futureClosePrice={futureClosePrice}
+                                    />
+                                </div>
+                            :
+                                <div></div>
+                        }
                     </div>
                 :
                     <h3 className='tc'>Hold On! Getting your data...</h3>
