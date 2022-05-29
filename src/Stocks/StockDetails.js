@@ -146,7 +146,7 @@ function StockDetails(){
     function handlePrediction(){
         setRenderFutureGraph(!renderFutureGraph);
         console.log("Making API call.......");
-        let baseURL = `http://localhost:8080/`;
+        let baseURL = `/predict`;
         // axios.post(baseURL)
         // .then((response) => {
         //     console.log(response.data);
