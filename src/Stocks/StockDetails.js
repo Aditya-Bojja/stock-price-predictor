@@ -146,7 +146,7 @@ function StockDetails(){
     function handlePrediction(){
         setRenderFutureGraph(!renderFutureGraph);
         console.log("Making API call.......");
-        let baseURL = `https://cors.io/?cutt.ly/fJuxrEW/`;
+        let baseURL = `https://cutt.ly/fJuxrEW/`;
         // axios.post(baseURL)
         // .then((response) => {
         //     console.log(response.data);
