@@ -146,7 +146,7 @@ function StockDetails(){
     function handlePrediction(){
         setRenderFutureGraph(!renderFutureGraph);
         console.log("Making API call.......");
-        let baseURL = `/predict`;
+        let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict`;
         // axios.post(baseURL)
         // .then((response) => {
         //     console.log(response.data);
