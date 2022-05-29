@@ -162,13 +162,13 @@ function StockDetails(){
         // xhttp.send();
 
         fetch(baseURL, {
-            mode: 'no-cors',
+            // mode: 'no-cors',
                 headers : { 
                   'Content-Type': 'application/json',
                   'Accept': 'application/json', 
                  }
       
-          }).then(response => console.log(response));
+          }).then(response => response.json()).then(data => console.log(data));
 
 
 
