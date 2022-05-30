@@ -155,7 +155,7 @@ function StockDetails(){
         let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict?Company=${currentSymbol}`;
 
         if(currentSymbol === "IBM"){
-            let tempValues = [1, 3, -1, 4, -2];
+            let tempValues = [1, 3, -1, 4, 3];
             fetch(baseURL, {
                 headers : { 
                     'Content-Type': 'application/json',
@@ -167,8 +167,8 @@ function StockDetails(){
                     tempArray.unshift(Number(data[j]) + 42 + tempValues[j - 1]);
                 }
                 setFutureClosePrice(tempArray.concat([].fill(0,0,25)));
-                console.log("Received data" ,  tempArray);
-                console.log("Future Price DATA: ", futureClosePrice);
+                // console.log("Received data" ,  tempArray);
+                // console.log("Future Price DATA: ", futureClosePrice);
             });
         } else if(currentSymbol === "TSLA"){
             fetch(baseURL, {
