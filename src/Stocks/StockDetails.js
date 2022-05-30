@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import Navigation from '../Navigation/Navigation';
 import StockChart from './StockChart';
@@ -144,43 +143,40 @@ function StockDetails(){
     }
 
     function handlePrediction(){
-        setRenderFutureGraph(!renderFutureGraph);
         console.log("Making API call.......");
-        let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict`;
-        // axios.post(baseURL)
-        // .then((response) => {
-        //     console.log(response.data);
-        // });
-
-        // var xhttp = new XMLHttpRequest();
-        // xhttp.onreadystatechange = function() {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //         console.log(this.responseText);
-        //     }
-        // };
-        // xhttp.open("GET", baseURL, true);
-        // xhttp.send();
+        // let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict`;
+        let symbolCheck = ["TATAMOTORS", "ASIANPAINT", "AXISBANK", "BAJAJ-AUTO", "BHARTIARTL"];
+        let currentSymbol = activeStockSymbol.split(".")[0];
+        if(! symbolCheck.includes(currentSymbol)){
+            return;
+        }
+        
+        setRenderFutureGraph(true);
+        let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict?Company=${currentSymbol}`;
 
         fetch(baseURL, {
-            // mode: 'no-cors',
-                headers : { 
-                  'Content-Type': 'application/json',
-                  'Accept': 'application/json', 
-                 }
-      
-          }).then(response => response.json()).then(data => console.log(data));
+            headers : { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json', 
+            }
+        }).then(response => response.json()).then(data => {
+            let tempArray = [];
+            for(let j = 1; j < 6; j++){
+                tempArray.unshift(data[j]);
+            }
+            setFutureClosePrice(tempArray.concat([].fill("",0,25)));
+            console.log("RECEIVED DATA:", data);
+            console.log("tempArray data" ,  tempArray);
+            console.log("Future Price DATA: ", futureClosePrice);
+        });
 
-
-
-        console.log("Fetched Data");
         let futureDates = [];
         var today = new Date();
-        for(let i = 1; i < 6; i++){
+        for(let i = 0; i < 5; i++){
             today.setDate(today.getDate()+1)
             futureDates.unshift(today.toLocaleDateString());
         }
         setFutureTimeStamps(futureDates.concat(timeStamps.slice(0, 25)));
-        setFutureClosePrice([417.05, 420.20, 422.34, 419.35, 423.46].concat([].fill(0,0,25)));
     }
 
     return(
