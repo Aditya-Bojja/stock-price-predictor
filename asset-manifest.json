@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/stock-price-predictor/static/css/main.04b72e62.css",
-    "main.js": "/stock-price-predictor/static/js/main.a452665f.js",
+    "main.js": "/stock-price-predictor/static/js/main.4875a0f9.js",
     "static/js/787.3e196be8.chunk.js": "/stock-price-predictor/static/js/787.3e196be8.chunk.js",
     "static/media/home.jpg": "/stock-price-predictor/static/media/home.40a6b34f1a5d91feb035.jpg",
     "index.html": "/stock-price-predictor/index.html",
     "main.04b72e62.css.map": "/stock-price-predictor/static/css/main.04b72e62.css.map",
-    "main.a452665f.js.map": "/stock-price-predictor/static/js/main.a452665f.js.map",
+    "main.4875a0f9.js.map": "/stock-price-predictor/static/js/main.4875a0f9.js.map",
     "787.3e196be8.chunk.js.map": "/stock-price-predictor/static/js/787.3e196be8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.04b72e62.css",
-    "static/js/main.a452665f.js"
+    "static/js/main.4875a0f9.js"
   ]
 }
