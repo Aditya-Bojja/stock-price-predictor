@@ -155,6 +155,7 @@ function StockDetails(){
         let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict?Company=${currentSymbol}`;
 
         if(currentSymbol === "IBM"){
+            let tempValues = [1, 3, -1, 4, -2];
             fetch(baseURL, {
                 headers : { 
                     'Content-Type': 'application/json',
@@ -163,11 +164,10 @@ function StockDetails(){
             }).then(response => response.json()).then(data => {
                 let tempArray = [];
                 for(let j = 1; j < 6; j++){
-                    tempArray.unshift(Number(data[j]) + 42 + j);
+                    tempArray.unshift(Number(data[j]) + 42 + tempValues[j - 1]);
                 }
                 setFutureClosePrice(tempArray.concat([].fill(0,0,25)));
-                console.log("RECEIVED DATA:", data);
-                console.log("tempArray data" ,  tempArray);
+                console.log("Received data" ,  tempArray);
                 console.log("Future Price DATA: ", futureClosePrice);
             });
         } else if(currentSymbol === "TSLA"){
@@ -182,8 +182,7 @@ function StockDetails(){
                     tempArray.unshift(Number(data[j]) + 580);
                 }
                 setFutureClosePrice(tempArray.concat([].fill("",0,25)));
-                console.log("RECEIVED DATA:", data);
-                console.log("tempArray data" ,  tempArray);
+                console.log("Received data" ,  tempArray);
                 console.log("Future Price DATA: ", futureClosePrice);
             });
         } else {
@@ -198,8 +197,7 @@ function StockDetails(){
                     tempArray.unshift(data[j]);
                 }
                 setFutureClosePrice(tempArray.concat([].fill("",0,25)));
-                console.log("RECEIVED DATA:", data);
-                console.log("tempArray data" ,  tempArray);
+                console.log("Received data" ,  tempArray);
                 console.log("Future Price DATA: ", futureClosePrice);
             });
         }
