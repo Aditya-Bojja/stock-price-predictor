@@ -64,7 +64,7 @@ function StockDetails(){
 
         setChange((closePrice[0] - closePrice[1]).toFixed(2));
         setPercentChange((((closePrice[0] - closePrice[1])/closePrice[1])*100).toFixed(2));
-
+        // console.log(activeStockData);
         console.log("Stock Details API call");
     }, [activeStockData]);
 
@@ -150,7 +150,7 @@ function StockDetails(){
         if(! symbolCheck.includes(currentSymbol)){
             return;
         }
-        
+
         setRenderFutureGraph(true);
         let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict?Company=${currentSymbol}`;
 
@@ -172,7 +172,8 @@ function StockDetails(){
 
         let futureDates = [];
         var today = new Date();
-        for(let i = 0; i < 5; i++){
+        futureDates.unshift(today.toLocaleDateString());
+        for(let i = 0; i < 4; i++){
             today.setDate(today.getDate()+1)
             futureDates.unshift(today.toLocaleDateString());
         }

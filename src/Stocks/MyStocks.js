@@ -95,7 +95,7 @@ const MyStocks = () => {
                                 :
                                     <div className='ma2 f3'>You made a loss of <strong className='red'>{Number(totalInvested - totalReturns).toFixed(2)} INR</strong> </div>
                             }
-                            <div className='ma2 f3'>Estimated Future Value: NA</div>
+                            {/* <div className='ma2 f3'>Estimated Future Value: NA</div> */}
                             <button className="br-pill ph3 pv2 ma2 mt4 sd-button" onClick={handleRefresh}>Refresh All</button>
                         </div>
                     </div>
