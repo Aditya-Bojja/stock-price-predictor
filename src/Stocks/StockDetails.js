@@ -167,7 +167,7 @@ function StockDetails(){
                     tempArray.unshift(Number(data[j]) + 42 + tempValues[j - 1]);
                 }
                 setFutureClosePrice(tempArray.concat([].fill(0,0,25)));
-                // console.log("Received data" ,  tempArray);
+                console.log("Received data" ,  tempArray);
                 // console.log("Future Price DATA: ", futureClosePrice);
             });
         } else if(currentSymbol === "TSLA"){
@@ -183,7 +183,7 @@ function StockDetails(){
                 }
                 setFutureClosePrice(tempArray.concat([].fill("",0,25)));
                 console.log("Received data" ,  tempArray);
-                console.log("Future Price DATA: ", futureClosePrice);
+                // console.log("Future Price DATA: ", futureClosePrice);
             });
         } else {
             fetch(baseURL, {
@@ -198,7 +198,7 @@ function StockDetails(){
                 }
                 setFutureClosePrice(tempArray.concat([].fill("",0,25)));
                 console.log("Received data" ,  tempArray);
-                console.log("Future Price DATA: ", futureClosePrice);
+                // console.log("Future Price DATA: ", futureClosePrice);
             });
         }
 
