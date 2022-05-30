@@ -145,11 +145,11 @@ function StockDetails(){
     function handlePrediction(){
         console.log("Making API call.......");
         // let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict`;
-        let symbolCheck = ["TATAMOTORS", "ASIANPAINT", "AXISBANK", "BAJAJ-AUTO", "BHARTIARTL"];
+        // let symbolCheck = ["TATAMOTORS", "ASIANPAINT", "AXISBANK", "BAJAJ-AUTO", "BHARTIARTL"];
         let currentSymbol = activeStockSymbol.split(".")[0];
-        if(! symbolCheck.includes(currentSymbol)){
-            return;
-        }
+        // if(! symbolCheck.includes(currentSymbol)){
+        //     return;
+        // }
 
         setRenderFutureGraph(true);
         let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict?Company=${currentSymbol}`;

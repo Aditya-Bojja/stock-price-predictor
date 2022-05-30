@@ -1,5 +1,4 @@
 import React, {useContext, useState} from 'react';
-
 import {DefaultSensex} from '../Stocks/DefaultSensex';
 
 const StockContext = React.createContext();
