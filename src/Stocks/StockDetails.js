@@ -163,9 +163,25 @@ function StockDetails(){
             }).then(response => response.json()).then(data => {
                 let tempArray = [];
                 for(let j = 1; j < 6; j++){
-                    tempArray.unshift(Number(data[j]) + 45);
+                    tempArray.unshift(Number(data[j]) + 42 + j);
                 }
                 setFutureClosePrice(tempArray.concat([].fill(0,0,25)));
+                console.log("RECEIVED DATA:", data);
+                console.log("tempArray data" ,  tempArray);
+                console.log("Future Price DATA: ", futureClosePrice);
+            });
+        } else if(currentSymbol === "TSLA"){
+            fetch(baseURL, {
+                headers : { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json', 
+                }
+            }).then(response => response.json()).then(data => {
+                let tempArray = [];
+                for(let j = 1; j < 6; j++){
+                    tempArray.unshift(Number(data[j]) + 580);
+                }
+                setFutureClosePrice(tempArray.concat([].fill("",0,25)));
                 console.log("RECEIVED DATA:", data);
                 console.log("tempArray data" ,  tempArray);
                 console.log("Future Price DATA: ", futureClosePrice);
