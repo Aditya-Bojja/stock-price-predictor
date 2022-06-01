@@ -145,89 +145,28 @@ function StockDetails(){
     function handlePrediction(){
         console.log("Making API call.......");
         // let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict`;
-        // let symbolCheck = ["TATAMOTORS", "ASIANPAINT", "AXISBANK", "BAJAJ-AUTO", "BHARTIARTL"];
+        let symbolCheck = ["TATAMOTORS", "ASIANPAINT", "TSLA", "IBM"];
         let currentSymbol = activeStockSymbol.split(".")[0];
-        // if(! symbolCheck.includes(currentSymbol)){
-        //     return;
-        // }
+        if(! symbolCheck.includes(currentSymbol)){
+            return;
+        }
 
         setRenderFutureGraph(true);
         let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict?Company=${currentSymbol}`;
  
-        // fetch(baseURL, {
-        //     headers : { 
-        //         'Content-Type': 'application/json',
-        //         'Accept': 'application/json', 
-        //     }
-        // }).then(response => response.json()).then(data => {
-        //     let tempArray = [];
-        //     for(let j = 1; j < 6; j++){
-        //         tempArray.unshift(data[j]);
-        //     }
-        //     setFutureClosePrice(tempArray.concat([].fill("",0,25)));
-        //     console.log("Received data" ,  tempArray);
-        // });
-
-        if(currentSymbol === "ASIANPAINT") {
-            let temp = [530, 540, 460, 0, 0];
-            fetch(baseURL, {
-                headers : { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json', 
-                }
-            }).then(response => response.json()).then(data => {
-                let tempArray = [];
-                for(let j = 1; j < 6; j++){
-                    tempArray.unshift(Number(data[j]) + temp[j - 1]);
-                }
-                setFutureClosePrice(tempArray.concat([].fill(0,0,25)));
-                console.log("Received data" ,  tempArray);
-            });
-        } else if(currentSymbol === "TSLA"){
-            let temp = [580, 582.2, 580.3, 579.8, 578];
-            fetch(baseURL, {
-                headers : { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json', 
-                }
-            }).then(response => response.json()).then(data => {
-                let tempArray = [];
-                for(let j = 1; j < 6; j++){
-                    tempArray.unshift(Number(data[j]) + temp[j - 1]);
-                }
-                setFutureClosePrice(tempArray.concat([].fill(0,0,25)));
-                console.log("Received data" ,  tempArray);
-            });
-        } else if(currentSymbol === "IBM") {
-            let temp = [43, 45.4, 46.2, 45.4, 42.1];
-            fetch(baseURL, {
-                headers : { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json', 
-                }
-            }).then(response => response.json()).then(data => {
-                let tempArray = [];
-                for(let j = 1; j < 6; j++){
-                    tempArray.unshift(Number(data[j]) + temp[j - 1]);
-                }
-                setFutureClosePrice(tempArray.concat([].fill(0,0,25)));
-                console.log("Received data" ,  tempArray);
-            });
-        } else if(currentSymbol === "TATAMOTORS"){
-            fetch(baseURL, {
-                headers : { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json', 
-                }
-            }).then(response => response.json()).then(data => {
-                let tempArray = [];
-                for(let j = 1; j < 6; j++){
-                    tempArray.unshift(data[j]);
-                }
-                setFutureClosePrice(tempArray.concat([].fill("",0,25)));
-                console.log("Received data" ,  tempArray);
-            }); 
-        }
+        fetch(baseURL, {
+            headers : { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json', 
+            }
+        }).then(response => response.json()).then(data => {
+            let tempArray = [];
+            for(let j = 1; j < 6; j++){
+                tempArray.unshift(data[j]);
+            }
+            setFutureClosePrice(tempArray.concat([].fill("",0,25)));
+            console.log("Received data" ,  tempArray);
+        });
 
         let futureDates = [];
         var today = new Date();
