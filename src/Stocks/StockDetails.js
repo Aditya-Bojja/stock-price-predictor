@@ -144,7 +144,6 @@ function StockDetails(){
 
     function handlePrediction(){
         console.log("Making API call.......");
-        // let baseURL = `http://mukesh.southindia.cloudapp.azure.com/predict`;
         let symbolCheck = ["TATAMOTORS", "ASIANPAINT", "TSLA", "IBM"];
         let currentSymbol = activeStockSymbol.split(".")[0];
         if(! symbolCheck.includes(currentSymbol)){
@@ -162,6 +161,7 @@ function StockDetails(){
         }).then(response => response.json()).then(data => {
             let tempArray = [];
             for(let j = 1; j < 6; j++){
+                //Add to the front of array
                 tempArray.unshift(data[j]);
             }
             setFutureClosePrice(tempArray.concat([].fill("",0,25)));

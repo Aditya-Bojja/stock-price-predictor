@@ -61,7 +61,6 @@ const MyStocks = () => {
         setMessage("Fetched New Stock Data! Refresh the page to see results")
     }
     
-    // setLoading(false);
     return (
         <div>
             <Navigation />
